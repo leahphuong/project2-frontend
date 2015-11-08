@@ -10,3 +10,8 @@
 .text-center {
   text-align: center;
 }
+
+.item-collection {
+  height: 450px;
+  width: 90%;
+}

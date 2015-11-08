@@ -6,3 +6,7 @@
 .team-member .details {
   height: 250px !important;
 }
+
+.text-center {
+  text-align: center;
+}

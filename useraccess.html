@@ -7,129 +7,88 @@
 <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 <link href="../css/userAccess.css" rel="stylesheet" type="text/css">
 <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
 <script src="../js/app.js"></script>
+<script src="../js/ajax.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
 </head>
 
 <body>
 
-<!-- Where all the magic happens -->
-<!-- LOGIN FORM -->
-<div id="LoginForm" class="text-center" style="padding:50px 0">
-  <div class="logo">login</div>
-  <!-- Main Form -->
-  <div class="login-form-1">
-    <form id="login-form" class="text-left">
-      <div class="login-form-main-message"></div>
-      <div class="main-login-form">
-        <div class="login-group">
-          <div class="form-group">
-            <label for="lg_username" class="sr-only">Username</label>
-            <input type="text" class="form-control" id="lg_username" name="lg_username" placeholder="username">
+<div class="container">
+      <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-login">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-6">
+                <a href="#" class="active" id="login-form-link">Login</a>
+              </div>
+              <div class="col-xs-6">
+                <a href="#" id="register-form-link">Register</a>
+              </div>
+            </div>
+            <hr>
           </div>
-          <div class="form-group">
-            <label for="lg_password" class="sr-only">Password</label>
-            <input type="password" class="form-control" id="lg_password" name="lg_password" placeholder="password">
-          </div>
-          <div class="form-group login-group-checkbox">
-            <input type="checkbox" id="lg_remember" name="lg_remember">
-            <label for="lg_remember">remember</label>
-          </div>
-        </div>
-        <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-      </div>
-      <div class="etc-login-form">
-        <p>forgot your password? <a href="#" onclick="loginVisibility('forgot'); return false;">click here</a></p>
-        <p>new user? <a href="#" onclick="loginVisibility('register'); return false;">create new account</a></p>
-      </div>
-    </form>
-  </div>
-  <!-- end:Main Form -->
-</div>
-
-<!-- REGISTRATION FORM -->
-<div id="RegistrationForm"class="text-center" style="padding:50px 0; display: none;">
-  <div class="logo">register</div>
-  <!-- Main Form -->
-  <div class="login-form-1" style="text-align: left !important;">
-    <form id="register-form" class="text-left">
-      <div class="login-form-main-message"></div>
-      <div class="main-login-form">
-        <div class="login-group">
-          <div class="form-group">
-            <label for="reg_fullname" class="sr-only">Full Name</label>
-            <input type="text" class="form-control" id="reg_fullname" name="reg_fullname" placeholder="full name">
-          </div>
-          <div class="form-group">
-            <label for="reg_username" class="sr-only">Email address</label>
-            <input type="text" class="form-control" id="reg_username" name="reg_username" placeholder="username">
-          </div>
-          <div class="form-group">
-            <label for="reg_password" class="sr-only">Password</label>
-            <input type="password" class="form-control" id="reg_password" name="reg_password" placeholder="password">
-          </div>
-          <div class="form-group">
-            <label for="reg_password_confirm" class="sr-only">Confirm</label>
-            <input type="password" class="form-control" id="reg_password_confirm" name="reg_password_confirm" placeholder="confirm password">
-          </div>
-
-          <!-- <div class="form-group">
-            <label for="reg_email" class="sr-only">Email</label>
-            <input type="text" class="form-control" id="reg_email" name="reg_email" placeholder="email">
-          </div> -->
-
-
-          <!-- <div class="form-group login-group-checkbox">
-            <input type="radio" class="" name="reg_gender" id="male" placeholder="username">
-            <label for="male">male</label>
-
-            <input type="radio" class="" name="reg_gender" id="female" placeholder="username">
-            <label for="female">female</label>
-          </div> -->
-
-          <!-- <div class="form-group login-group-checkbox">
-            <input type="checkbox" class="" id="reg_agree" name="reg_agree">
-            <label for="reg_agree">i agree with <a href="#">terms</a></label>
-          </div> -->
-        </div>
-        <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-      </div>
-      <div class="etc-login-form">
-        <p>already have an account? <a href="#" onclick="loginVisibility('login'); return false;">login here</a></p>
-      </div>
-    </form>
-  </div>
-  <!-- end:Main Form -->
-</div>
-
-<!-- FORGOT PASSWORD FORM -->
-<div id="ForgotPasswordForm" class="text-center" style="padding:50px 0; display: none;">
-  <div class="logo">forgot password</div>
-  <!-- Main Form -->
-  <div class="login-form-1">
-    <form id="forgot-password-form" class="text-left">
-      <div class="etc-login-form">
-        <p>When you fill in your registered email address, you will be sent instructions on how to reset your password.</p>
-      </div>
-      <div class="login-form-main-message"></div>
-      <div class="main-login-form">
-        <div class="login-group">
-          <div class="form-group">
-            <label for="fp_email" class="sr-only">Email address</label>
-            <input type="text" class="form-control" id="fp_email" name="fp_email" placeholder="email address">
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-12">
+                <form id="login-form" action="#" role="form" style="display: block;">
+                  <div class="form-group">
+                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                  </div>
+                  <div class="form-group text-center">
+                    <input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+                    <label for="remember"> Remember Me</label>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-6 col-sm-offset-3">
+                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <div class="text-center">
+                          <a href="#" tabindex="5" class="forgot-password">Forgot Password?</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <form id="register-form" action="" role="form" style="display: none;">
+                  <div class="form-group">
+                    <input type="text" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                  </div>
+                  <div class="form-group">
+                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password_confirmation" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-6 col-sm-offset-3">
+                        <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                      </div>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
         </div>
-        <button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
       </div>
-      <div class="etc-login-form">
-        <p>already have an account? <a href="#" onclick="loginVisibility('login'); return false;">login here</a></p>
-        <p>new user? <a href="#" onclick="loginVisibility('register'); return false;">create new account</a></p>
-      </div>
-    </form>
+    </div>
   </div>
-  <!-- end:Main Form -->
-</div>
 </body>
 </html>

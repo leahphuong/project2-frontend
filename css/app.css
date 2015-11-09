@@ -15,3 +15,7 @@
   height: 450px;
   width: 90%;
 }
+
+#itemDescription {
+  height: 120px !important;
+}

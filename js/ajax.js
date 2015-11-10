@@ -8,7 +8,6 @@ var api = {
       cb({jqxher: jqxhr, status: status, error: error});
     });
   },
-
   register: function(credentials, callback) {
     this.ajax({
       method: 'POST',
@@ -17,14 +16,15 @@ var api = {
       data: JSON.stringify(credentials),
       dataType: 'json'
     }, callback);
+  },
+  login: function(credentials,callback) {
+    this.ajax({
+      method: 'POST',
+      url: this.url + '/login',
+      contentType: 'application/json; charset=utf-8',
+      data: JSON.stringify(credentials),
+      dataType: 'json'
+    }, callback);
   }
 }
-
-// curl --include --request POST --header "Content-Type: application/json" -d '{
-//   "credentials": {
-//     "email": "an@example.email",
-//     "password": "an example password",
-//     "password_confirmation": "an example password"
-//   }
-// }' http://localhost:3000/register
 

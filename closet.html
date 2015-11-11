@@ -102,7 +102,7 @@
   <!-- / END SECTION HEADER -->
 
   <!-- TEAM MEMBERS -->
-  <div class="row wow fadeInRight animated" data-wow-offset="40" data-wow-duration="3s" data-wow-delay="0.15s">
+  <div id="collectionRow" class="row wow fadeInRight animated" data-wow-offset="40" data-wow-duration="3s" data-wow-delay="0.15s">
     <!-- MEMBER -->
     <div class="col-lg-4 col-sm-4">
       <div class="team-member">
@@ -280,7 +280,48 @@
 <script src="js/smoothscroll.js"></script>
 <script src="js/jquery.vegas.min.js"></script>
 <script src="js/zerif.js"></script>
+<script src="../js/ajax.js"></script>
+<script>
+  function getParameterByName(name) {
+    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        results = regex.exec(location.search);
+    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+  }
 
+  function generateGrid(jsonData) {
+    var html = '';
+    for (var i = 0; i < jsonData.length; i++) {
+      var collection = jsonData[i];
+      html = '<div class="col-lg-4 col-sm-4"><div class="team-member"><figure class="profile-pic"><img src="';
+      if (collection.photo_url) {
+        html += collection.photo_url;
+      } else {
+        html += 'https://cdnc.lystit.com/photos/e1cb-2015/01/20/seiko-gray-womens-premier-stainless-steel-bracelet-watch-28mm-sxde01-product-1-17152627-0-308709817-normal.jpeg';
+      }
+      html += '" alt=""></figure><div class="member-details"><h5 class="dark-text red-border-bottom">';
+      html += collection.name;
+      html += '</h5><div class="position">';
+      html += collection.description;
+      html += '</div></div><div class="details"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium sapiente voluptate nostrum ipsa tempora optio facilis beatae quo aut error corrupti officiis dolore accusantium rem rerum illum nulla sed quisquam.</p></div></div></div>';
+    }
+    $("#collectionRow").append(html);
+  }
+
+  $(function() {
+    var collectionCallback = function(errors, data){
+      if(errors){
+        console.log(errors);
+      } else {
+        alert('success');
+        console.log(data);
+        generateGrid(data.collections);
+      }
+    };
+    var token = getParameterByName("token");
+    api.loadCloset(token, collectionCallback);
+  });
+</script>
 </body>
 </html>
 

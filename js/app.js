@@ -60,16 +60,26 @@ $(function() {
     e.preventDefault();
     var credentials = wrap("credentials", form2object(this));
 
-    var displayMsg = function(errors){
-      if(errors){
-        console.log(errors);
+    var loginCallback = function(error, data){
+      if(error){
+        console.log(error);
       } else {
         console.log('success');
+        var token = data.user.token;
+        console.log(token);
+        window.location.href = '/closet.html?token=' + token;
       }
     };
-    api.login(credentials, displayMsg);
+    api.login(credentials, loginCallback);
 
   });
 
+
+    $('#AddItem').on('submit', function(e){
+    e.preventDefault();
+
+
+
+  })
 });
 

@@ -37,13 +37,42 @@ var api = {
       dataType: 'json'
     }, callback);
   },
-  addItem: function(token, callback) {
+  loadCollection: function(token, collectionID, callback) {
     this.ajax({
-      method: 'POST',
-      url: this.url + '/addItem',
-      contentType: 'application/json; charset=utf-8',
-      data: JSON.stringify({}),
+      method: 'GET',
+      url: this.url + '/collections/' + collectionID + '/items',
+      contentType: 'application/json',
+      headers: {
+        'Authorization': 'Token token="' + token + '"'
+      },
       dataType: 'json'
     }, callback);
-  }
+  },
+
+  addItem: function(token, collectionID, itemData, callback) {
+    this.ajax({
+      method: 'POST',
+      url: this.url + '/collections/' + collectionID + '/items',
+      contentType: 'application/json; charset=utf-8',
+      headers: {
+        'Authorization': 'Token token="' + token + '"'
+      },
+      data: JSON.stringify(itemData),
+      dataType: 'json'
+    }, callback);
+  },
+  updateItem: function(token, collectionID, itemID,itemData, callback) {
+    this.ajax({
+      method: 'POST',
+      url: this.url + '/collections/' + collectionID + '/items',
+      contentType: 'application/json; charset=utf-8',
+      headers: {
+        'Authorization': 'Token token="' + token + '"'
+      },
+      data: JSON.stringify(itemData),
+      dataType: 'json'
+    }, callback);
+  },
+
+
 };

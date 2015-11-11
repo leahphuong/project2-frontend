@@ -1126,7 +1126,6 @@ width: -webkit-calc(100% / 2);
 /*--ITEMS IMAGES--*/
 .item-1 {
 	background-image: url("http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=125500590");
-	background-repeat: no-repeat;
 }
 .item-2 {
 	background-image: url("http://www.bragmybag.com/wp-content/uploads/2014/02/Celine-Trapeze-Bag-1.jpg");

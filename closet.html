@@ -103,130 +103,9 @@
 
   <!-- TEAM MEMBERS -->
   <div id="collectionRow" class="row wow fadeInRight animated" data-wow-offset="40" data-wow-duration="3s" data-wow-delay="0.15s">
-    <!-- MEMBER -->
-    <div class="col-lg-4 col-sm-4">
-      <div class="team-member">
-        <figure class="profile-pic">
-        <img src="https://cdnc.lystit.com/photos/e1cb-2015/01/20/seiko-gray-womens-premier-stainless-steel-bracelet-watch-28mm-sxde01-product-1-17152627-0-308709817-normal.jpeg" alt="">
-        <!-- MEMBER PROFILE PIC -->
-        </figure>
-        <div class="member-details">
-          <h5 class="dark-text red-border-bottom">Seiko</h5>
-          <div class="position">
-            Stainless steel watch
-          </div>
-        </div>
-        <div class="details">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium sapiente voluptate nostrum ipsa tempora optio facilis beatae quo aut error corrupti officiis dolore accusantium rem rerum illum nulla sed quisquam.
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- / END MEMBER -->
-
-    <div class="col-lg-4 col-sm-4">
-      <div class="team-member">
-        <figure class="profile-pic">
-        <img src="http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=46661132" alt="">
-        </figure>
-        <div class="member-details">
-          <h5 class="dark-text green-border-bottom">Salvatore Ferragamo</h5>
-          <div class="position">
-            Varina Patent Ballet Flats
-          </div>
-        </div>
-
-        <div class="details">
-          <p>
-            Chic and elegant!
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-4">
-      <div class="team-member">
-        <figure class="profile-pic">
-        <img src="http://cdn.savannahs.com/client/savannahs/dynamic/images/1667_b5c932b29f-600214-salvatore-ferragamo-ginny-black-leather-shoulder-bag-2-thumb.jpg" alt="">
-        </figure>
-        <div class="member-details">
-          <h5 class="dark-text blue-border-bottom">Salvatore Ferragamo</h5>
-          <div class="position">
-            Black leather 'Ginny' bow detail shoulder bag
-          </div>
-        </div>
-
-        <div class="details">
-          <p>
-            Add an elegant touch!
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-4">
-      <div class="team-member">
-        <figure class="profile-pic">
-        <img src="http://i5.walmartimages.com/dfw/dce07b8c-a9e9/k2-_e933e8c2-652a-459f-982f-36398063f258.v1.jpg" alt="">
-        </figure>
-        <div class="member-details">
-          <h5 class="dark-text red-border-bottom">Rachel Roy</h5>
-          <div class="position">
-            Tan Leather Knee-High Boots
-          </div>
-        </div>
-
-        <div class="details">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium sapiente voluptate nostrum ipsa tempora optio facilis beatae quo aut error corrupti officiis dolore accusantium rem rerum illum nulla sed quisquam.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-4">
-      <div class="team-member">
-        <figure class="profile-pic">
-        <img src="http://us.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-speedy-30-damier-ebene-canvas-handbags--N41364_PM2_Front%20view.jpg" alt="">
-        </figure>
-        <div class="member-details">
-          <h5 class="dark-text green-border-bottom">Louis Vuitton</h5>
-          <div class="position">
-            Speedy 30 Damier Ebene Canvas - Top Handles Handbags
-          </div>
-        </div>
-
-        <div class="details">
-          <p>
-            Very convenient. Have plenty of room, goes well with a lot of outfits!
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-lg-4 col-sm-4">
-      <div class="team-member">
-        <figure class="profile-pic">
-        <img src="http://images.yoox.com/44/44619533fx_12_f.jpg" alt="">
-        </figure>
-        <div class="member-details">
-          <h5 class="dark-text blue-border-bottom">Lady Kiara</h5>
-          <div class="position">
-            Ankle boots
-          </div>
-        </div>
-
-        <div class="details">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium sapiente voluptate nostrum ipsa tempora optio facilis beatae quo aut error corrupti officiis dolore accusantium rem rerum illum nulla sed quisquam.
-          </p>
-        </div>
-      </div>
-    </div>
-    <a href="#" class="btn btn-primary custom-button green-btn">More</a>
-    </div>
   </div> <!-- / END TEAM MEMBER LIST -->
+
+  <a href="#" class="btn btn-primary custom-button green-btn">More</a>
 
 </div> <!-- / END CONTAINER -->
 </section> <!-- / END OUR TEAM SECTION -->
@@ -281,27 +160,23 @@
 <script src="js/jquery.vegas.min.js"></script>
 <script src="js/zerif.js"></script>
 <script src="../js/ajax.js"></script>
+<script src="../js/app.js"></script>
 <script>
-  function getParameterByName(name) {
-    name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
-    var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-        results = regex.exec(location.search);
-    return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
-  }
-
   function generateGrid(jsonData) {
     var html = '';
     for (var i = 0; i < jsonData.length; i++) {
       var collection = jsonData[i];
-      html = '<div class="col-lg-4 col-sm-4"><div class="team-member"><figure class="profile-pic"><img src="';
+      html += '<div class="col-lg-4 col-sm-4"><div class="team-member"><figure class="profile-pic"><img src="';
       if (collection.photo_url) {
         html += collection.photo_url;
       } else {
         html += 'https://cdnc.lystit.com/photos/e1cb-2015/01/20/seiko-gray-womens-premier-stainless-steel-bracelet-watch-28mm-sxde01-product-1-17152627-0-308709817-normal.jpeg';
       }
-      html += '" alt=""></figure><div class="member-details"><h5 class="dark-text red-border-bottom">';
+      html += '" alt=""></figure><div class="member-details"><a href="';
+      html += '/collection.html?token=' + getParameterByName("token") + '&collection=' + collection.id;
+      html += '"><h5 class="dark-text red-border-bottom">';
       html += collection.name;
-      html += '</h5><div class="position">';
+      html += '</h5></a><div class="position">';
       html += collection.description;
       html += '</div></div><div class="details"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium sapiente voluptate nostrum ipsa tempora optio facilis beatae quo aut error corrupti officiis dolore accusantium rem rerum illum nulla sed quisquam.</p></div></div></div>';
     }
@@ -309,7 +184,7 @@
   }
 
   $(function() {
-    var collectionCallback = function(errors, data){
+    var closetCallback = function(errors, data){
       if(errors){
         console.log(errors);
       } else {
@@ -319,7 +194,7 @@
       }
     };
     var token = getParameterByName("token");
-    api.loadCloset(token, collectionCallback);
+    api.loadCloset(token, closetCallback);
   });
 </script>
 </body>

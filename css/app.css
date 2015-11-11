@@ -14,6 +14,7 @@
 .item-collection {
   height: 450px;
   width: 90%;
+  background-repeat: no-repeat;
 }
 
 #itemDescription {

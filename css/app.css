@@ -20,3 +20,7 @@
 #itemDescription {
   height: 120px !important;
 }
+
+#closetTab, #logoutTab {
+  display: none;
+}

@@ -72,9 +72,9 @@
       </div>
       <nav class="navbar-collapse collapse" role="navigation" id="bs-navbar-collapse">
       <ul class="nav navbar-nav navbar-right responsive-nav main-nav-list">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#closet">Closets</a></li>
-        <li><a href="#features">About</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="closet.html">Collections</a></li>
+        <li><a href="" onclick="logOut(); return false;">Log out</a></li>
       </ul>
       </nav>
     </div>
@@ -92,14 +92,14 @@
         <div class="section-header" style="padding-bottom: 25px;">
 
     <!-- SECTION TITLE -->
-    <h2 class="dark-text">Collection</h2>
+    <h2 id="collectionTitle" class="dark-text">My collection</h2>
 
     <!-- SHORT DESCRIPTION ABOUT THE SECTION -->
-    <h6 class="dark-text">
+    <h6 id="collectionDesc" class="dark-text">
       Stay chic and classy on a fun night out.
     </h6>
 
-  <a href="addAnItem.html" class="btn btn-primary custom-button green-btn">Add New item</a>
+    <button id="AddNewItem" type="button" value="Add New Item" class="btn btn-primary custom-button green-btn">Add New Item</button>
   </div>
 
   <!-- / END SECTION HEADER -->
@@ -109,8 +109,6 @@
 
 
     </div> <!-- / END PRODUCTS LIST -->
-
-      <a href="#" class="btn btn-primary custom-button green-btn">More</a>
   </div> <!-- / END CONTAINER -->
 </div> <!-- / END COLOR OVERLAY -->
 </section> <!-- / END PRODUCTS SECTION -->
@@ -175,14 +173,18 @@
       if (item.photo_url) {
         html += item.photo_url;
       } else {
-        html += '../images/products/1.jpg';
+        html += 'http://sd.keepcalm-o-matic.co.uk/i/keep-calm-and-stay-gorgeous-51.png';
       }
       html += ');">';
       html += '<div class="item-overlay"></div><div class="item-content"><div class="item-top-content"><div class="item-top-content-inner"><div class="item-product"><div class="item-top-title"><h5>';
       html += item.name;
       html += '</h5><p  class="subdescription">';
       html += item.description;
-      html += '</p></div></div></div></div><div class="item-add-content"><div class="item-add-content-inner"><div class="section"></div><div class="section"><a href="#" class="btn btn-primary custom-button green-btn">Update</a><br/><a href="#" class="btn btn-primary custom-button red-btn">Remove</a></div></div></div></div></div></div>';
+      html += '</p></div></div></div></div><div class="item-add-content"><div class="item-add-content-inner"><div class="section"></div><div class="section"><a href="#" class="btn btn-primary custom-button green-btn" onclick="updateItem(';
+        html += item.id;
+        html += ')">Update</a><br/><a href="#" class="btn btn-primary custom-button red-btn" onclick="removeItem(';
+        html += item.id;
+        html += ')">Remove</a></div></div></div></div></div></div>';
     }
     $('#itemRow').append(html);
   }
@@ -192,14 +194,12 @@
       if(errors){
         console.log(errors);
       } else {
-        alert('success');
         console.log(data);
         generateGrid(data.items);
       }
     };
-    var token = getParameterByName("token");
     var collectionID = getParameterByName("collection");
-    api.loadCollection(token, collectionID, collectionCallback);
+    api.loadCollection(localStorage.getItem("token"), collectionID, collectionCallback);
   });
 </script>
 </body>

@@ -102,18 +102,18 @@
   </div>
 
   <!-- / END SECTION HEADER -->
-  <form id="AddItem" role="form">
+  <form id="AddCollection" role="form">
   <div class="form-group">
-    <label for="item">Item name:</label>
-    <input type="text" class="form-control" id="itemName">
+    <label for="collection">Collection name:</label>
+    <input type="text" name="name" class="form-control" id="collectionName">
   </div>
   <div class="form-group">
     <label for="photo">Photo URL:</label>
-    <input type="text" class="form-control" id="photoURL">
+    <input type="text" name="photo_url" class="form-control" id="photoURL">
   </div>
   <div class="form-group">
     <label for="description">Description:</label>
-    <input type="text" class="form-control" id="itemDescription">
+    <input type="text" name="description" class="form-control" id="collectionDescription">
   </div>
 
   <input type="submit" class="btn btn-primary custom-button green-btn"></input>
@@ -170,6 +170,8 @@
 <script src="js/smoothscroll.js"></script>
 <script src="js/jquery.vegas.min.js"></script>
 <script src="js/zerif.js"></script>
+<script src="../js/ajax.js"></script>
+<script src="../js/app.js"></script>
 
 </body>
 </html>

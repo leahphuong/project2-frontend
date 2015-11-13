@@ -77,6 +77,8 @@
 				<li><a href="#home">Home</a></li>
 				<li><a href="#closet">Featured Collections</a></li>
 				<li><a href="#features">About</a></li>
+        <li id="closetTab"><a href="closet.html">Collections</a></li>
+        <li id="logoutTab"><a href="" onclick="logOut(); return false;">Log out</a></li>
 			</ul>
 			</nav>
 		</div>
@@ -137,7 +139,7 @@
 				</div>
 				<div class="details">
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium sapiente voluptate nostrum ipsa tempora optio facilis beatae quo aut error corrupti officiis dolore accusantium rem rerum illum nulla sed quisquam.
+						  Keep calm and be classy!
 					</p>
 				</div>
 			</div>
@@ -198,7 +200,7 @@
 
 				<div class="details">
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium sapiente voluptate nostrum ipsa tempora optio facilis beatae quo aut error corrupti officiis dolore accusantium rem rerum illum nulla sed quisquam.
+						  Keep calm and stay classy!
 					</p>
 				</div>
 			</div>
@@ -238,7 +240,7 @@
 
 				<div class="details">
 					<p>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium sapiente voluptate nostrum ipsa tempora optio facilis beatae quo aut error corrupti officiis dolore accusantium rem rerum illum nulla sed quisquam.
+						Keep calm and stay classy!
 					</p>
 				</div>
 			</div>
@@ -375,9 +377,9 @@
               <div class="item-top-content-inner">
                 <div class="item-product">
                   <div class="item-top-title">
-                    <h5>Valentino</h5>
+                    <h5>Tiffany & Co.</h5>
                     <p class="subdescription">
-                      Rockstud heels
+                      Tiffany® mini heart tag bracelet.
                     </p>
                   </div>
                 </div>
@@ -395,7 +397,7 @@
               <div class="item-add-content-inner">
                 <div class="section">
                   <p>
-                    Glossy patent leather upper with contrast napa leather trim, straps and signature Valentino pyramid studs.
+
                   </p>
                 </div>
                  <div class="section">
@@ -431,7 +433,7 @@
 
 		<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
 		<h6>
-			We design &amp; develop qaulity products to help small &amp; medium level business.
+			Viewing your closet is just a click away!
 		</h6>
 	</div>
 	<!-- / END SECTION HEADER -->
@@ -449,7 +451,7 @@
 				</div>
 				<h5>Design with Love</h5>
 				<p>
-					 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					 Every girl dreams of having a walk-in closet where she will see all her dresses, shoes, purses and so on...#classy is 'that' walk-in closet!
 				</p>
 			</div>
 			<!-- / END FEATURE -->
@@ -473,7 +475,7 @@
 				</div>
 				<h5>Thousands of Options</h5>
 				<p>
-					 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					 Create your own dresses collection or shoes collection!
 				</p>
 			</div>
 			<!-- / END FEATURE -->
@@ -488,7 +490,7 @@
 				</div>
 				<h5>Easy to Customize</h5>
 				<p>
-					 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+					 #classy offers an effortless way to view and manage your closet by letting you create many new collections.
 				</p>
 			</div>
 			<!-- / END FEATURE -->
@@ -506,15 +508,6 @@
 			<!-- / END FEATURE -->
 
 			<!-- FEATURE -->
-			<div class="feature">
-				<div class="feature-icon">
-					<i class="icon-speech-streamline-talk-user"></i>
-				</div>
-				<h5>Awesome Support</h5>
-				<p>
-					 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-				</p>
-			</div>
 			<!-- / END FEATURE -->
 
 		</div> <!-- / END FEATURES COLUMN RIGHT -->
@@ -604,6 +597,16 @@
 <script src="js/smoothscroll.js"></script>
 <script src="js/jquery.vegas.min.js"></script>
 <script src="js/zerif.js"></script>
-
+<script src="../js/ajax.js"></script>
+<script src="../js/app.js"></script>
+<script>
+$(function() {
+  var userID = localStorage.getItem("userID");
+  if (userID) {
+    $('#closetTab').css('display', 'block');
+    $('#logoutTab').css('display', 'block');
+  }
+})
+</script>
 </body>
 </html>

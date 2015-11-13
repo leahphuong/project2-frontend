@@ -72,9 +72,9 @@
       </div>
       <nav class="navbar-collapse collapse" role="navigation" id="bs-navbar-collapse">
       <ul class="nav navbar-nav navbar-right responsive-nav main-nav-list">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#closet">Closets</a></li>
-        <li><a href="#features">About</a></li>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Collections</a></li>
+        <li><a href="" onclick="logOut(); return false;">Log out</a></li>
       </ul>
       </nav>
     </div>
@@ -97,15 +97,13 @@
     <h6>
       Check out my awesome collections.
     </h6>
-    <a href="addAnItem.html" class="btn btn-primary custom-button green-btn">Add New Collection</a>
+    <button id="AddNewCollection" type="button" value="Add New Collection" class="btn btn-primary custom-button green-btn">Add New Collection</button>
   </div>
   <!-- / END SECTION HEADER -->
 
   <!-- TEAM MEMBERS -->
   <div id="collectionRow" class="row wow fadeInRight animated" data-wow-offset="40" data-wow-duration="3s" data-wow-delay="0.15s">
   </div> <!-- / END TEAM MEMBER LIST -->
-
-  <a href="#" class="btn btn-primary custom-button green-btn">More</a>
 
 </div> <!-- / END CONTAINER -->
 </section> <!-- / END OUR TEAM SECTION -->
@@ -170,15 +168,15 @@
       if (collection.photo_url) {
         html += collection.photo_url;
       } else {
-        html += 'https://cdnc.lystit.com/photos/e1cb-2015/01/20/seiko-gray-womens-premier-stainless-steel-bracelet-watch-28mm-sxde01-product-1-17152627-0-308709817-normal.jpeg';
+        html += '../images/keepcalm.png';
       }
       html += '" alt=""></figure><div class="member-details"><a href="';
-      html += '/collection.html?token=' + getParameterByName("token") + '&collection=' + collection.id;
+      html += '/collection.html?collection=' + collection.id;
       html += '"><h5 class="dark-text red-border-bottom">';
       html += collection.name;
       html += '</h5></a><div class="position">';
       html += collection.description;
-      html += '</div></div><div class="details"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium sapiente voluptate nostrum ipsa tempora optio facilis beatae quo aut error corrupti officiis dolore accusantium rem rerum illum nulla sed quisquam.</p></div></div></div>';
+      html += '</div></div><div class="details"><p>Welcome back gorgeous!</p></div></div></div>';
     }
     $("#collectionRow").append(html);
   }
@@ -188,13 +186,10 @@
       if(errors){
         console.log(errors);
       } else {
-        alert('success');
-        console.log(data);
         generateGrid(data.collections);
       }
     };
-    var token = getParameterByName("token");
-    api.loadCloset(token, closetCallback);
+    api.loadCloset(localStorage.getItem("token"), closetCallback);
   });
 </script>
 </body>

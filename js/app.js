@@ -10,10 +10,10 @@ $(function() {
 
 
   });
-//take the form and read the input text with the name
-//property, then form a data object {name: value}
-// data = {email: xxx, password: xxx,
-// password_confirmation: xxx}
+  //take the form and read the input text with the name
+  //property, then form a data object {name: value}
+  // data = {email: xxx, password: xxx,
+  // password_confirmation: xxx}
   var form2object = function(form) {
     var data = {};
     $(form).find("input").each(function(index, element) {
@@ -25,7 +25,7 @@ $(function() {
     return data;
   };
 
-// {"credentials": {email: xxx, password: xxx, password_confirmation: xxx} }
+  // {"credentials": {email: xxx, password: xxx, password_confirmation: xxx} }
   var wrap = function wrap(root, formData) {
     var wrapper = {};
     wrapper[root] = formData;
@@ -63,17 +63,17 @@ $(function() {
         console.log(error);
       } else {
         console.log('success');
-        // retrieve token after login successfully and
-        // assign it to token.
-        localStorage.setItem("token", data.user.token);
-        localStorage.setItem("userID", data.user.id);
-        // load closet page after user login succeeded.
-        window.location.href = '/closet.html';
-      }
-    };
-    api.login(credentials, loginCallback);
+          // retrieve token after login successfully and
+          // assign it to token.
+          localStorage.setItem("token", data.user.token);
+          localStorage.setItem("userID", data.user.id);
+          // load closet page after user login succeeded.
+          window.location.href = '/closet.html';
+        }
+      };
+      api.login(credentials, loginCallback);
 
-  });
+    });
 
   $('#AddNewItem').click(function(e) {
     e.preventDefault();
@@ -97,7 +97,7 @@ $(function() {
 
     var itemID = localStorage.getItem("itemID");
     if (itemID) {
-    console.log(itemID);
+      console.log(itemID);
       localStorage.removeItem("itemID", itemID);
       api.updateItem(localStorage.getItem("token"), collectionID, itemID, itemData, addItemCallback);
     } else {
@@ -115,19 +115,19 @@ $(function() {
 
   $('#AddCollection').on('submit', function(e){
     e.preventDefault();
-    // get data from submit form and wrap them
-    var collectionData = wrap("collection", form2object(this));
-    console.log(collectionData);
-    var addCollectionCallback = function(error, data) {
-      if (error) {
-        console.log(error);
-      } else {
-        console.log(data);
-        window.location.href = '/closet.html';
-      }
-    };
-    api.addCollection(localStorage.getItem("token"), collectionData, addCollectionCallback);
-  });
+      // get data from submit form and wrap them
+      var collectionData = wrap("collection", form2object(this));
+      console.log(collectionData);
+      var addCollectionCallback = function(error, data) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(data);
+          window.location.href = '/closet.html';
+        }
+      };
+      api.addCollection(localStorage.getItem("token"), collectionData, addCollectionCallback);
+    });
 });
 
 function updateItem(itemID) {
@@ -139,12 +139,12 @@ function updateItem(itemID) {
 function removeItem(itemID) {
   var collectionID = localStorage.getItem("collectionID", getParameterByName("collection"));
   var reloadPage = function(error, data) {
-      if (error) {
-        console.log(error);
-      } else {
-        window.location.reload(true);
-      }
-    };
+    if (error) {
+      console.log(error);
+    } else {
+      window.location.reload(true);
+    }
+  };
   api.removeItem(localStorage.getItem("token"), collectionID, itemID, reloadPage);
 }
 
@@ -165,6 +165,6 @@ function logOut() {
 function getParameterByName(name) {
   name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
   var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
-      results = regex.exec(location.search);
+  results = regex.exec(location.search);
   return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 }

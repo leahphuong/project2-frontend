@@ -112,3 +112,4 @@ https://www.gliffy.com/go/html5/9462399?app=1b5094b0-6042-11e2-bcfd-0800200c9a66
 <!-- END OF WIREFRAME LINK -->
 
 <!-- LINK TO LIVE APPLICATION -->
+http://leahphuong.github.io/project2-frontend/

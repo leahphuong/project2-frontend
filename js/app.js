@@ -137,7 +137,8 @@ function updateItem(itemID) {
 }
 
 function removeItem(itemID) {
-  var collectionID = localStorage.getItem("collectionID", getParameterByName("collection"));
+  // get collection ID from the url
+  var collectionID = getParameterByName("collection");
   var reloadPage = function(error, data) {
     if (error) {
       console.log(error);
